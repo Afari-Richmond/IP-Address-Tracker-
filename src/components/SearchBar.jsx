@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = () => {
   return (
@@ -10,7 +10,7 @@ const SearchBar = () => {
         className="flex-1  border-none outline-none px-5 py-2.5 rounded-tl-xl rounded-bl-xl w-96 pl-6 !mb-24"
       />
       <button className="border-none bg-black text-base px-4 py-2.5 rounded-br-xl rounded-tr-xl cursor-pointer text-white mb-8">
-        <FontAwesomeIcon icon={faArrowRight} />
+        <FontAwesomeIcon icon={ faAngleRight} />
       </button>
     </div>
   );
