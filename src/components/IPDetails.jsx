@@ -31,9 +31,3 @@ const IPDetails = () => {
 };
 
 export default IPDetails;
-
-
-
-
-
-
