@@ -1,6 +1,8 @@
 import { HomePageContainer } from "../styles/HomePage.styled";
 import SearchBar from "../components/SearchBar";
 import IPDetails from "../components/IPDetails";
+import Map from "../components/Map";
+
 
 const HomePage = () => {
   return (
@@ -12,12 +14,12 @@ const HomePage = () => {
         <div className="search-bar">
           <SearchBar />
         </div>
-
-       
       </HomePageContainer>
       <div className="IP-details">
-          <IPDetails />
-        </div>
+        <IPDetails />
+      </div>
+
+      <Map />
     </>
   );
 };
