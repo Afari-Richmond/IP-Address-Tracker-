@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 // import the IP Address context and create a provider component
 import { IpAddressContext } from "./IpAddressContext";
+// import my API key from the .env file
+const API_KEY = import.meta.env.VITE_IP_API_KEY;
 
 export const IpAddressProvider = ({ children }) => {
   // state variables to store the IP address, location, timezone, and ISP
@@ -8,8 +10,7 @@ export const IpAddressProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch the IP address data
-  const fetchIpAddressData = async (ipAddress = "", API_KEY) => {
+  const fetchIpAddressData = async (ipAddress = "") => {
     // Activate the loading spinner
     setLoading(true);
 
@@ -22,9 +23,11 @@ export const IpAddressProvider = ({ children }) => {
       if (!response.ok) {
         throw new Error("Failed to fetch IP data");
       }
+      
+      
       // Convert the response to JSON
       const data = await response.json();
-      console.log(data);
+     
       // Clear any previous errors
       setError(null);
       // Store the IP address data in the state
@@ -36,6 +39,9 @@ export const IpAddressProvider = ({ children }) => {
       // Deactivate the loading spinner
       setLoading(false);
     }
+
+
+    
   };
   // useEffect hook to fetch the IP address data when the component mounts
   useEffect(() => {

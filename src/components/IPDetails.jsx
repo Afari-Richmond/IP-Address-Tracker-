@@ -1,4 +1,28 @@
+import { IpAddressContext } from "../Context/IpAddressContext";
+import { useContext } from "react";
+import "../styles/IPDetails.css";
+
 const IPDetails = () => {
+  const { ipAddressData } = useContext(IpAddressContext);
+
+  if (!ipAddressData) {
+    return (
+      <div className="spinner">
+        <div className="spin"></div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+  const ipAddress = ipAddressData.ip;
+  const location =
+    ipAddressData.location.city +
+    ", " +
+    ipAddressData.location.region +
+    ", " +
+    ipAddressData.location.country;
+  const timezone = ipAddressData.location.timezone;
+  const isp = ipAddressData.isp;
+
   return (
     <>
       <div
@@ -8,22 +32,22 @@ const IPDetails = () => {
       >
         <div className="address flex flex-col items-start border-r-[1px] border-black pr-5 -mt-9">
           <div className="text-gray-500 text-[13px]">IP ADDRESS</div>
-          <div className="text-[23px] font-semibold">192.212.174.101</div>
+          <div className="text-[23px] font-semibold">{ipAddress}</div>
         </div>
 
         <div className="address flex flex-col items-start border-r-[1px] border-black pr-5 -mt-9">
           <div className="text-gray-500 text-[13px]">LOCATION</div>
-          <div className="text-[23px] font-semibold">Brooklyn, NY 1001 </div>
+          <div className="text-[23px] font-semibold">{location} </div>
         </div>
 
         <div className="address flex flex-col items-start border-r-[1px] border-black pr-5 -mt-9">
           <div className="text-gray-500 text-[13px]">TIMEZONE</div>
-          <div className="text-[23px] font-semibold">UTC- 5:00</div>
+          <div className="text-[23px] font-semibold">{timezone}</div>
         </div>
 
         <div className="address flex flex-col items-start  pr-5 -mt-9">
           <div className="text-gray-500 text-[13px]">ISP</div>
-          <div className="text-[23px] font-semibold">SpaceX Starlink</div>
+          <div className="text-[23px] font-semibold"> {isp} </div>
         </div>
       </div>
     </>
