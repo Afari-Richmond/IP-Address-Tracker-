@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = () => {
- 
   return (
     <div className="mt-14 ">
       <input
@@ -12,7 +11,7 @@ const SearchBar = () => {
         id="search"
       />
       <button className="border-none bg-black text-base px-4 py-2.5 rounded-br-xl rounded-tr-xl cursor-pointer text-white mb-8">
-        <FontAwesomeIcon icon={ faAngleRight} />
+        <FontAwesomeIcon icon={faAngleRight} />
       </button>
     </div>
   );
