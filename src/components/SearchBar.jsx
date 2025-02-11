@@ -16,7 +16,8 @@ const SearchBar = () => {
     e.preventDefault();
     fetchIpAddressData(ipInput);
 
-    console.log(ipAddressData);
+    
+    
   };
 
   return (
