@@ -15,43 +15,39 @@ const IPDetails = () => {
   }
   const ipAddress = ipAddressData.ip;
   const location =
-    ipAddressData.location.city +
-    ", " +
-    ipAddressData.location.region +
-    ", " +
-    ipAddressData.location.country;
+    ipAddressData.location.region + ", " + ipAddressData.location.country;
   const timezone = ipAddressData.location.timezone;
-  const isp = ipAddressData.isp;
+  const isp =  ipAddressData.isp;
 
   return (
     <>
       <div
-        className="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-   flex items-center justify-center text-center
- bg-white w-[900px] h-[150px] text-black rounded-2xl shadow-lg p-6 gap-10 align-center"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+  flex flex-wrap items-center justify-center text-center
+  bg-white max-w-[90%] w-full md:w-[900px] h-auto min-h-[150px] text-black 
+  rounded-2xl shadow-lg  gap-6"
       >
-        <div className="address flex flex-col items-start border-r-[1px] border-black pr-5 -mt-9">
-          <div className="text-gray-500 text-[13px]">IP ADDRESS</div>
-          <div className="text-[23px] font-semibold">{ipAddress}</div>
-        </div>
-
-        <div className="address flex flex-col items-start border-r-[1px] border-black pr-5 -mt-9">
-          <div className="text-gray-500 text-[13px]">LOCATION</div>
-          <div className="text-[23px] font-semibold">{location} </div>
-        </div>
-
-        <div className="address flex flex-col items-start border-r-[1px] border-black pr-5 -mt-9">
-          <div className="text-gray-500 text-[13px]">TIMEZONE</div>
-          <div className="text-[23px] font-semibold">{timezone}</div>
-        </div>
-
-        <div className="address flex flex-col items-start  pr-5 -mt-9">
-          <div className="text-gray-500 text-[13px]">ISP</div>
-          <div className="text-[23px] font-semibold"> {isp} </div>
-        </div>
+        {[
+          { label: "IP ADDRESS", value: ipAddress },
+          { label: "LOCATION", value: location },
+          { label: "TIMEZONE", value: timezone },
+          { label: "ISP", value: isp },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-start max-w-[220px] min-w-[150px] break-all whitespace-normal"
+          >
+            <div className="text-gray-500 text-[13px]">{item.label}</div>
+            <div className="text-[20px] font-semibold break-all whitespace-normal">
+              {item.value || "N/A"}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
 };
 
 export default IPDetails;
+
+//border-r-[1px] border-black pr-5 -mt-9
