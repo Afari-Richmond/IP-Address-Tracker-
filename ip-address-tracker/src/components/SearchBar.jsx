@@ -24,12 +24,12 @@ const SearchBar = () => {
         value={ipInput}
         type="text"
         placeholder="Search for any IP address or Domain"
-        className="flex-1  border-none outline-none px-5 py-2.5 rounded-tl-xl rounded-bl-xl w-96 pl-6 !mb-24"
+          className="flex-1 border-none outline-none px-5 py-2.5 rounded-tl-xl rounded-bl-xl w-96 pl-6 !mb-24 relative z-10 bg-white"
         id="search"
       />
       <button
         onClick={IpSearchHandler}
-        className="border-none bg-black text-base px-4 py-2.5 rounded-br-xl rounded-tr-xl cursor-pointer text-white mb-8"
+       className="border-none bg-black text-base px-4 py-2.5 rounded-br-xl rounded-tr-xl cursor-pointer text-white mb-8 relative z-10"
       >
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
