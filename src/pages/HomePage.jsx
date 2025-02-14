@@ -15,11 +15,12 @@ const HomePage = () => {
           <SearchBar />
         </div>
       </HomePageContainer>
+      <Map />
       <div className="IP-details">
         <IPDetails />
       </div>
 
-      <Map />
+     
     </>
   );
 };

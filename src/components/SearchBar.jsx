@@ -5,7 +5,7 @@ import { IpAddressContext } from "../Context/IpAddressContext";
 
 const SearchBar = () => {
   const [ipInput, setIpInput] = useState("");
-  const { ipAddressData, fetchIpAddressData } = useContext(IpAddressContext);
+  const { fetchIpAddressData } = useContext(IpAddressContext);
 
   // handle the input and store it in the ipInput state variable
   const inputHandler = (e) => {

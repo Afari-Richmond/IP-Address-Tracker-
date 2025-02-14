@@ -5,6 +5,7 @@ import "../styles/IPDetails.css";
 const IPDetails = () => {
   const { ipAddressData } = useContext(IpAddressContext);
 
+  // checks if IP address data is still loading and shows the loading spinner
   if (!ipAddressData) {
     return (
       <div className="spinner">
@@ -13,11 +14,12 @@ const IPDetails = () => {
       </div>
     );
   }
+  // extract the data from the result from the API request
   const ipAddress = ipAddressData.ip;
   const location =
     ipAddressData.location.region + ", " + ipAddressData.location.country;
   const timezone = ipAddressData.location.timezone;
-  const isp =  ipAddressData.isp;
+  const isp = ipAddressData.isp;
 
   return (
     <>
@@ -25,13 +27,17 @@ const IPDetails = () => {
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
   flex flex-wrap items-center justify-center text-center
   bg-white max-w-[90%] w-full md:w-[900px] h-auto min-h-[150px] text-black 
-  rounded-2xl shadow-lg  gap-6"
+  rounded-2xl shadow-lg  gap-6 "
       >
+        {/* //an array of the labels together with the corresponding data from the API request */}
         {[
           { label: "IP ADDRESS", value: ipAddress },
           { label: "LOCATION", value: location },
-          { label: "TIMEZONE", value: timezone },
+          { label: "TIMEZONE", value: "UTC" + " " + timezone },
           { label: "ISP", value: isp },
+          {
+            /* //map through the data and display the required labbel and their corresponding data */
+          },
         ].map((item, index) => (
           <div
             key={index}
@@ -39,7 +45,7 @@ const IPDetails = () => {
           >
             <div className="text-gray-500 text-[13px]">{item.label}</div>
             <div className="text-[20px] font-semibold break-all whitespace-normal">
-              {item.value || "N/A"}
+              {item.value || ""}
             </div>
           </div>
         ))}
