@@ -2,7 +2,7 @@ import { IpAddressContext } from "../Context/IpAddressContext";
 import { useContext } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import icon from "./icon";
+import icon from "./src/assets/images/icon-location.svg";
 
 const Map = () => {
   const { ipAddressData } = useContext(IpAddressContext);
