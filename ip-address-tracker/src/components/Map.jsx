@@ -2,9 +2,7 @@ import { IpAddressContext } from "../Context/IpAddressContext";
 import { useContext } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
- import icon from "../components/icon"; // Adjust path if necessary
-
-
+import icon from "../components/Icon";
 
 const Map = () => {
   const { ipAddressData } = useContext(IpAddressContext);
@@ -13,7 +11,7 @@ const Map = () => {
   const latitude = ipAddressData?.location?.lat || 0;
   const longitude = ipAddressData?.location?.lng || 0;
 
-  console.log(latitude, longitude); 
+  console.log(latitude, longitude);
 
   return (
     <div className="absolute top-[70%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -28,8 +26,12 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker icon={icon} position={[latitude, longitude]}> {/* Corrected */}
-          <Popup>A pretty CSS3 popup. <br /> Easily customizable.</Popup>
+        <Marker icon={icon} position={[latitude, longitude]}>
+          {" "}
+          {/* Corrected */}
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
         </Marker>
       </MapContainer>
     </div>
